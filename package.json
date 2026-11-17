@@ -1,0 +1,13 @@
+{
+  "name": "pronto-socorro",
+  "version": "1.0.0",
+  "description": "Sistema simples de atendimentos de Pronto Socorro (Projeto Integrador 2)",
+  "main": "BackEnd/server.js",
+  "scripts": {
+    "start": "node BackEnd/server.js",
+    "exemplo": "node BackEnd/database.js --exemplo"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

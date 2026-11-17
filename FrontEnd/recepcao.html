@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recepção - Pronto Socorro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" style="color:white;text-decoration:none">🏥 Pronto Socorro</a> · Recepção</h1>
+    <nav>
+      <a href="recepcao.html">Recepção</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="medico.html">Médico</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Formulário usado tanto para INCLUIR quanto para ALTERAR -->
+    <div class="cartao">
+      <h2 id="tituloForm">Novo atendimento</h2>
+      <form id="formPaciente">
+        <div class="grade">
+          <div><label>Nome completo *</label><input name="nome" required maxlength="100"></div>
+          <div><label>CPF *</label><input name="cpf" required placeholder="000.000.000-00"
+               pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite os 11 números do CPF"></div>
+          <div><label>RG</label><input name="rg" placeholder="00.000.000-0"></div>
+          <div><label>Data de nascimento *</label><input name="data_nascimento" type="date" required></div>
+          <div><label>Nome do pai</label><input name="nome_pai" maxlength="100"></div>
+          <div><label>Nome da mãe</label><input name="nome_mae" maxlength="100"></div>
+          <div><label>Endereço</label><input name="endereco" maxlength="150"></div>
+          <div><label>Telefone</label><input name="telefone" placeholder="(00) 00000-0000"
+               pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Digite DDD + número"></div>
+        </div>
+        <button type="submit" class="sucesso" id="btnSalvar">Gerar atendimento</button>
+        <button type="button" class="cinza escondido" id="btnCancelarEdicao">Cancelar edição</button>
+      </form>
+      <p id="msgForm"></p>
+    </div>
+
+    <!-- Lista / consulta de atendimentos -->
+    <div class="cartao">
+      <h2>Atendimentos</h2>
+      <input id="busca" placeholder="🔍 Buscar por nome, CPF ou código (ex: AT0001)">
+      <table>
+        <thead>
+          <tr><th>Código</th><th>Paciente</th><th>CPF</th><th>Chegada</th><th>Status</th><th>Ações</th></tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+      <p id="msgTabela"></p>
+    </div>
+
+    <!-- Detalhes do atendimento (aparece ao clicar em "Ver") -->
+    <div class="cartao escondido" id="detalhes"></div>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/recepcao.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Médico - Pronto Socorro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" style="color:white;text-decoration:none">🏥 Pronto Socorro</a> · Médico</h1>
+    <nav>
+      <a href="recepcao.html">Recepção</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="medico.html">Médico</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAINEL DE ATENDIMENTO: ordenado pela classificação de Manchester -->
+    <div class="cartao">
+      <h2>Painel de atendimento</h2>
+      <p>Ordenado por prioridade (Manchester) e depois por ordem de chegada. Atualiza a cada 10 segundos.</p>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Prioridade</th><th>Código</th><th>Paciente</th><th>Idade</th><th>Nascimento</th><th>Queixas</th><th>Chegada</th><th></th></tr>
+        </thead>
+        <tbody id="painel"></tbody>
+      </table>
+      <p id="msg"></p>
+    </div>
+
+    <!-- TELA DO ATENDIMENTO: lançar medicações e confirmar -->
+    <div class="cartao escondido" id="areaAtendimento">
+      <div id="dadosPaciente"></div>
+
+      <h3>Medicações</h3>
+      <table>
+        <thead><tr><th>Medicamento</th><th>Dosagem</th><th>Observação</th><th></th></tr></thead>
+        <tbody id="listaMedicacoes"></tbody>
+      </table>
+
+      <form id="formMedicacao">
+        <div class="grade" style="margin-top:12px">
+          <div><label>Medicamento *</label><input name="nome" required maxlength="100" placeholder="Ex: Dipirona"></div>
+          <div><label>Dosagem *</label><input name="dosagem" required maxlength="50" placeholder="Ex: 500mg"></div>
+          <div><label>Observação</label><input name="observacao" maxlength="200" placeholder="Ex: via oral, 6/6h"></div>
+        </div>
+        <button type="submit">+ Adicionar medicação</button>
+      </form>
+
+      <button class="sucesso" onclick="confirmarAtendimento()">✔ Confirmar atendimento (alta)</button>
+      <button class="cinza" onclick="fecharAtendimento()">Voltar ao painel</button>
+    </div>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/medico.js"></script>
+</body>
+</html>

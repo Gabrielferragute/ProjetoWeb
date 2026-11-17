@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triagem - Pronto Socorro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" style="color:white;text-decoration:none">🏥 Pronto Socorro</a> · Triagem</h1>
+    <nav>
+      <a href="recepcao.html">Recepção</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="medico.html">Médico</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cartao">
+      <h2>Aguardando triagem</h2>
+      <table>
+        <thead>
+          <tr><th>Código</th><th>Paciente</th><th>Chegada</th><th></th></tr>
+        </thead>
+        <tbody id="tabela"></tbody>
+      </table>
+      <p id="msg"></p>
+    </div>
+
+    <!-- Aparece quando a enfermeira escolhe um paciente -->
+    <div class="cartao escondido" id="areaTriagem">
+      <h2 id="tituloTriagem">Triagem</h2>
+      <form id="formTriagem">
+        <div class="grade">
+          <div><label>Pressão arterial *</label><input name="pressao" required maxlength="7" placeholder="120/80"
+               pattern="\d{2,3}/\d{2,3}" title="Formato: 120/80"></div>
+          <div><label>Temperatura (°C) *</label><input name="temperatura" type="number" step="0.1" min="30" max="45" required></div>
+          <div><label>Batimentos (bpm) *</label><input name="batimentos" type="number" min="20" max="250" required></div>
+          <div>
+            <label>Classificação de Manchester *</label>
+            <select name="classificacao" required>
+              <option value="">Selecione...</option>
+              <option value="VERMELHO">🔴 Vermelho - Emergência (imediato)</option>
+              <option value="LARANJA">🟠 Laranja - Muito urgente (até 10 min)</option>
+              <option value="AMARELO">🟡 Amarelo - Urgente (até 60 min)</option>
+              <option value="VERDE">🟢 Verde - Pouco urgente (até 120 min)</option>
+              <option value="AZUL">🔵 Azul - Não urgente (até 240 min)</option>
+            </select>
+          </div>
+        </div>
+        <label style="margin-top:12px">Principais queixas *</label>
+        <textarea name="queixas" rows="3" required maxlength="500" placeholder="Ex: dor de cabeça, náusea..."></textarea>
+        <button type="submit" class="sucesso">Registrar triagem</button>
+        <button type="button" class="cinza" onclick="fecharTriagem()">Fechar</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/comum.js"></script>
+  <script src="js/triagem.js"></script>
+</body>
+</html>
